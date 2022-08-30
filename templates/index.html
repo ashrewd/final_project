@@ -1,38 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- {% comment %} TODO: 5. base.html 템플릿을 만들어 모든 페이지에서 상속받아 보여주세요 {% endcomment %} -->
-<!-- <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  {% comment %} TODO: 6. bootstrap 스타일을 적용해주세요	 {% endcomment %}
-</head>
 
-<body> -->
   <div class="container">
-      <!-- {% comment %} TODO: 4. /index 페이지에는 로그인 한 유저 이름을 출력해야 합니다. ex) hello, 홍길동 {% endcomment %} -->
-      <!-- {{ form }} {{ msg }} <br /> -->
-      <!-- {% for i in params %} {{i}}<br />
-      {% endfor %}  -->
-      {% if user.is_authenticated %}
 
+      {% if user.is_authenticated %}
       <p>{{ user.username }} 님 로그인</p>
       <br>
-      <!-- {{ msg }} -->
-      <!-- <p><a href="{% url 'logout' %}">로그아웃</a></p> -->
       <p><a class="btn btn-primary" href="{% url 'logout' %}" role="button">로그아웃</a></p>
+      
       {% else %}
-      <!-- <p><a href="{% url 'register' %}">회원가입</a></p> -->
       <p>회원가입 또는 로그인 하세요.</p>
       <br>
       <a class="btn btn-primary" href="{% url 'register' %}" role="button">회원가입</a>
       <a class="btn btn-primary" href="{% url 'login' %}" role="button">로그인</a>
-      <!-- <p><a href="{% url 'login' %}">로그인</a></p> -->
-
       {% endif %}
   
   </div>
 {% endblock %}
-<!-- </body>
 
-</html> -->
