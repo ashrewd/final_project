@@ -23,7 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-036*t#yfhnc%#sqtt$n5162)jz=i32(6eb*-zwniv%+1x06lf="
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ENV = os.environ.get("DJANGO_ENV", "dev")
+
+if ENV == "dev":
+    DEBUG = True
+else:
+    DEBUG = False
+
+# DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,6 +49,16 @@ INSTALLED_APPS = [
     "django_seed",
 ]
 
+# if DEBUG:
+#     INSTALLED_APPS += [
+#         "debug_toolbar",
+#         "django_seed",
+#     ]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]  # Django Debug Toolbar
+
 LOGIN_URL = "/login/"
 
 MIDDLEWARE = [
@@ -53,6 +70,11 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+# if DEBUG:
+#     INSTALLED_APPS += [
+#         "debug_toolbar.middleware.DebugToolbarMiddleware",  # Django Debug Toolbar
+#     ]
 
 ROOT_URLCONF = "final_project.urls"
 

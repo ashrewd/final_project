@@ -4,12 +4,14 @@
   <div class="container">
 
       {% if user.is_authenticated %}
-      <p>{{ user.username }} 님 로그인</p>
+      <h3>{{ user.username }} 님 로그인 중</h3>
       <br>
       <p><a class="btn btn-primary" href="{% url 'logout' %}" role="button">로그아웃</a></p>
       
       {% else %}
-      <p>회원가입 또는 로그인 하세요.</p>
+      <h2> 홈페이지 방문을 환영합니다.</h2>
+      <br>
+      <h5>회원가입 또는 로그인 하세요.</h5>
       <br>
       <a class="btn btn-primary" href="{% url 'register' %}" role="button">회원가입</a>
       <a class="btn btn-primary" href="{% url 'login' %}" role="button">로그인</a>
